@@ -1,6 +1,7 @@
 "use strict";
 
-const Events = require("events");
-const events = new Events();
+require("dotenv").config();
+const io = require("socket.io-client");
+const socket = io.connect(`http://localhost:${process.env.PORT || 3001}`);
 
-module.exports = events;
+module.exports = socket;
